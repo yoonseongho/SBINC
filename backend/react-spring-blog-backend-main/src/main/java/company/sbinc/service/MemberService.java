@@ -101,7 +101,7 @@ public class MemberService {
      */
     private void isExistUserId(String userid) {
         if (memberRepository.findByUserid(userid).isPresent()) {
-            throw new MemberException("이미 사용 중인 이메일입니다.", HttpStatus.BAD_REQUEST);
+            throw new MemberException("이미 사용 중인 아이디입니다.", HttpStatus.BAD_REQUEST);
         }
     }
 
@@ -112,7 +112,7 @@ public class MemberService {
      */
     private void checkPassword(String password, String passwordCheck) {
         if (!password.equals(passwordCheck)) {
-            throw new MemberException("패스워드 불일치", HttpStatus.BAD_REQUEST);
+            throw new MemberException("비밀번호가 일치하지않습니다.", HttpStatus.BAD_REQUEST);
         }
     }
 
@@ -123,7 +123,7 @@ public class MemberService {
      */
     private void checkEncodePassword(String rawPassword, String encodedPassword) {
         if (!encoder.matches(rawPassword, encodedPassword)) {
-            throw new MemberException("패스워드 불일치", HttpStatus.BAD_REQUEST);
+            throw new MemberException("비밀번호가 일치하지않습니다.", HttpStatus.BAD_REQUEST);
         }
     }
 }
