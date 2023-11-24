@@ -31,7 +31,7 @@ function Login() {
 			password: pwd
 		}
 
-		await axios.post("http://localhost:80/user/login", req)
+		await axios.post("http://localhost:6974/user/login", req)
 		.then((resp) => {
 			console.log("[Login.js] login() success");
 			console.log(resp.data);

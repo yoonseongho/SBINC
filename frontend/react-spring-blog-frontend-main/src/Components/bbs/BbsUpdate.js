@@ -57,7 +57,7 @@ function BbsUpdate() {
         const fd = new FormData();
         files.forEach((file) => fd.append(`file`, file));
 
-        await axios.post(`http://localhost:80/board/${boardId}/file/upload`, fd, {headers: headers})
+        await axios.post(`http://localhost:6974/board/${boardId}/file/upload`, fd, {headers: headers})
             .then((resp) => {
                 console.log("[file.js] fileUpload() success");
                 console.log(resp.data);
@@ -75,7 +75,7 @@ function BbsUpdate() {
     /* 파일 삭제 */
     const fileDelete = async (boardId, fileId) => {
         try {
-            await axios.delete(`http://localhost:80/board/${boardId}/file/delete?fileId=${fileId}`, {headers: headers});
+            await axios.delete(`http://localhost:6974/board/${boardId}/file/delete?fileId=${fileId}`, {headers: headers});
             console.log("[BbsUpdate.js] fileDelete() success");
             alert("파일 삭제 성공 :D");
         } catch (error) {
@@ -93,7 +93,7 @@ function BbsUpdate() {
             content: content
         }
 
-        await axios.patch(`http://localhost:80/board/${bbs.boardId}/update`, req, {headers: headers})
+        await axios.patch(`http://localhost:6974/board/${bbs.boardId}/update`, req, {headers: headers})
             .then((resp) => {
                 console.log("[BbsUpdate.js] updateBbs() success");
                 console.log(resp.data);

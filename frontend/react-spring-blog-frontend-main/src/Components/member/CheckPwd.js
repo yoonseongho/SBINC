@@ -37,7 +37,7 @@ function CheckPwd() {
         }
 
         try {
-            const resp = await axios.post("http://localhost:80/user/checkPwd", req, { headers: headers });
+            const resp = await axios.post("http://localhost:6974/user/checkPwd", req, { headers: headers });
             console.log("[MemberUpdate.js] checkPwd() success");
             console.log(resp.data);
             setUserid(resp.data.userid);

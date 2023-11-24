@@ -22,7 +22,7 @@ function BbsList() {
     // 게시글 전체 조회
     const getBbsList = async (page) => {
         try {
-            const response = await axios.get("http://localhost:80/board/list", {
+            const response = await axios.get("http://localhost:6974/board/list", {
                 params: {"page": page - 1},
             });
 
@@ -42,7 +42,7 @@ function BbsList() {
     // 게시글 검색
     const search = async () => {
         try {
-            const response = await axios.get("http://localhost:80/board/search", {
+            const response = await axios.get("http://localhost:6974/board/search", {
                 params: {
                     page: page - 1,
                     title: choiceVal === "title" ? searchVal : "",

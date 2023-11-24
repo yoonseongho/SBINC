@@ -18,7 +18,7 @@ function BbsDetail() {
 
     const getBbsDetail = async () => {
         try {
-            const response = await axios.get(`http://localhost:80/board/${boardId}`);
+            const response = await axios.get(`http://localhost:6974/board/${boardId}`);
 
             console.log("[BbsDetail.js] getBbsDetail() success");
             console.log(response.data);
@@ -32,7 +32,7 @@ function BbsDetail() {
 
     const deleteBbs = async () => {
         try {
-            const response = await axios.delete(`http://localhost:80/board/${boardId}/delete`, {headers: headers});
+            const response = await axios.delete(`http://localhost:6974/board/${boardId}/delete`, {headers: headers});
 
             console.log("[BbsDetail.js] deleteBbs() success");
             console.log(response.data);
