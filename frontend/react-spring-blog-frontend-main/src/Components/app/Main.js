@@ -1,5 +1,5 @@
 import Router from "../router/Router"
-import "../../css/main.css";
+import "../../css/main.css"
 
 function Main() {
 

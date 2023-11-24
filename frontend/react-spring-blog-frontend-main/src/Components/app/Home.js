@@ -1,22 +1,11 @@
 import React from "react";
+import "../../css/Home.css";
 
 function Home() {
     return (
         <div className="container mt-5">
             <div className="jumbotron">
-                <img src="../../../public/images/Companylogo.png"></img>
-                <p className="lead">
-
-                </p>
-                <p>
-
-                </p>
-                <br></br><br></br>
-                <div className="mt-4">
-                </div>
-                <br></br>
-                <div className="mt-4">
-                </div>
+                <img className="logo" src={process.env.PUBLIC_URL + '/images/Companylogo.png'} alt="회사 로고" />
             </div>
         </div>
     );

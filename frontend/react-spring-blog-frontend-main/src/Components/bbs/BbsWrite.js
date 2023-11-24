@@ -47,7 +47,7 @@ function BbsWrite() {
                 console.log("[file.js] fileUpload() success");
                 console.log(resp.data);
 
-                alert("파일 업로드 성공 :D");
+                alert("파일 업로드 성공");
             })
             .catch((err) => {
                 console.log("[FileData.js] fileUpload() error");
@@ -88,7 +88,7 @@ function BbsWrite() {
 
         // 로그인한 사용자인지 체크
         if (!auth) {
-            alert("로그인 한 사용자만 게시글을 작성할 수 있습니다 !");
+            alert("로그인 한 사용자만 게시글을 작성할 수 있습니다");
             navigate(-1);
         }
     }, []);
