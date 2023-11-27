@@ -18,8 +18,8 @@ public class CustomUserDetailsService implements UserDetailsService {
     private MemberRepository memberRepo;
 
     @Override
-    public UserDetails loadUserByUsername(String userid) throws UsernameNotFoundException {
-        return this.memberRepo.findByUserid(userid).orElseThrow(
-                () -> new ResourceNotFoundException("Member", "Member userid : ", userid));
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        return this.memberRepo.findByUserid(username).orElseThrow(
+                () -> new ResourceNotFoundException("Member", "Member username: ", username));
     }
 }
