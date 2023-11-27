@@ -2,6 +2,10 @@ footer {
 	/* position: absolute; */
 	left: 0px;
 	bottom: 0px;
-	height: 80px;
+	height: 100%;
 	width: 100%;
+}
+
+.container .text-center {
+	text-align: center;
 }
