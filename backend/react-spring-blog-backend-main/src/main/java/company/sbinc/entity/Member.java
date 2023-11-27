@@ -59,12 +59,12 @@ public class Member extends BaseTimeEntity implements UserDetails {
 
     //========== UserDetails implements ==========//
     /**
-     * Token을 고유한 userid 값으로 생성합니다
-     * @return userid;
+     * Token을 고유한 username 값으로 생성합니다
+     * @return username;
      */
     @Override
     public String getUsername() {
-        return userid;
+        return username;
     }
 
     @Override

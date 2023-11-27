@@ -112,15 +112,15 @@ function submit_check() {
     var userId = document.getElementById("userId");
     var password = document.getElementById("password");
 
-    if (userId.value == "") {
+    if (userId.value === "") {
         alert("아이디를 입력하세요.");
         userId.focus();
         return false;
-    } else if (password.value == "") {
+    } else if (password.value === "") {
         alert("비밀번호를 입력하세요.");
         password.focus();
         return false;
     }
-    // eslint-disable-next-line no-undef
-    submit();
+    
+    submit_check();
 };

@@ -51,7 +51,7 @@ function Header() {
                                     <li className="nav-item">
                                         <Link className="nav-link" to="/checkpwd">
                                             <i className="fas fa-sign-out-alt"></i> {auth} 님 반갑습니다 <i
-                                            className="fab fa-ello"></i>{" "} &nbsp;{" "}
+                                            ></i>{" "} &nbsp;{" "}
                                         </Link>
                                     </li>
 

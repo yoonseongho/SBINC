@@ -14,10 +14,15 @@ function Login() {
 	const navigate = useNavigate();
 
 	const [id, setId] = useState("");
+	const [name, setName] = useState("");
 	const [pwd, setPwd] = useState("");
 
 	const changeId = (event) => {
 		setId(event.target.value);
+	}
+
+	const changeName = (event) => {
+		setName(event.target.value);
 	}
 
 	const changePwd = (event) => {
@@ -28,6 +33,7 @@ function Login() {
 
 		const req = {
 			userid: id,
+			username: name,
 			password: pwd
 		}
 
@@ -36,7 +42,7 @@ function Login() {
 			console.log("[Login.js] login() success");
 			console.log(resp.data);
 
-				alert(resp.data.userid + "님, 성공적으로 로그인 되었습니다");
+				alert(resp.data.username + "님, 성공적으로 로그인 되었습니다");
 
 				// JWT 토큰 저장
 				localStorage.setItem("bbs_access_token", resp.data.token);
