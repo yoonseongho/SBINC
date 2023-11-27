@@ -38,6 +38,9 @@ function Header() {
                                     <Link className="dropdown-item" to="/bbslist">
                                         글목록
                                     </Link>
+                                    <Link className="dropdown-item" to="/date">
+                                        달력
+                                    </Link>
                                 </div>
                             </li>
                         </ul>
