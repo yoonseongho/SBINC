@@ -1,6 +1,7 @@
 import {Route, Routes} from "react-router-dom";
 
 import Home from "../app/Home"
+import Date from "../date/Date"
 import BbsList from "../bbs/BbsList"
 import BbsWrite from "../bbs/BbsWrite"
 import BbsDetail from "../bbs/BbsDetail"
@@ -20,6 +21,7 @@ function Router() {
             <Route path="/" element={<Home/>}></Route>
 
             <Route path="/bbslist" element={<BbsList/>}></Route>
+            <Route path="/date" element={<Date/>}></Route>
             <Route path="/bbswrite" element={<BbsWrite/>}></Route>
             <Route path="/bbsdetail/:boardId" element={<BbsDetail/>}></Route>
             <Route path="/bbsupdate" element={<BbsUpdate/>}></Route>

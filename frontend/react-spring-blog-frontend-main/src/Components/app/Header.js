@@ -31,7 +31,7 @@ function Header() {
                                     aria-haspopup="true"
                                     aria-expanded="false"
                                 >
-                                    게시판
+                                    목록
                                 </div>
 
                                 <div className="dropdown-menu" aria-labelledby="navbarDropdown">

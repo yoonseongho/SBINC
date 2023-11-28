@@ -1,3 +1,4 @@
+// JwtTokenUtil.java
 package company.sbinc.security.jwt;
 
 import io.jsonwebtoken.Claims;
@@ -68,6 +69,11 @@ public class JwtTokenUtil implements Serializable {
     //validate token
     public Boolean validateToken(String token, UserDetails userDetails) {
         final String username = getUsernameFromToken(token);
-        return (username.equals(userDetails.getUsername()) && !isTokenExpired(token));
+        if (username.equals(userDetails.getUsername()) && !isTokenExpired(token)) {
+            System.out.println("Token validation successful for user: " + username);
+            return true;
+        }
+        System.out.println("Token validation failed for user: " + username);
+        return false;
     }
 }
