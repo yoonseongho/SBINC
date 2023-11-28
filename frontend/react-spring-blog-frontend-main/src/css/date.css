@@ -8,6 +8,12 @@
   border-bottom: 1px solid #ccc;
 }
 
+/* CSS 파일에 추가 */
+.day.selected {
+  color: red;
+  /* 또는 원하는 스타일을 여기에 추가하세요 */
+}
+
 .before,
 .after {
   background-color: #fff; /* 버튼 배경색 */

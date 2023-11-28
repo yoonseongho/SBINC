@@ -23,6 +23,12 @@ const CalendarComponent = () => {
     };
 
     const updateCalendar = () => {
+        // 이전에 선택한 날짜에서 빨간색 제거
+        const 이전에선택한날짜 = document.querySelector('.day.selected');
+        if (이전에선택한날짜) {
+            이전에선택한날짜.classList.remove('selected');
+        }
+
         const calendar = document.getElementById("calendar");
         const monthDisplay = document.getElementById("month-display");
         const yearDisplay = document.getElementById("year-display");
@@ -60,11 +66,15 @@ const CalendarComponent = () => {
     };
 
     const selectDay = (dayElement) => {
-        if (selectedDay) {
-            selectedDay.style.color = '';
+        // 이전에 선택한 날짜에서 빨간색 제거
+        const 이전에선택한날짜 = document.querySelector('.day.selected');
+        if (이전에선택한날짜) {
+            이전에선택한날짜.classList.remove('selected');
         }
+
+        // 새로운 선택한 날짜를 설정하고 빨간색 적용
         setSelectedDay(dayElement);
-        dayElement.style.color = 'red';
+        dayElement.classList.add('selected');
         showNote(dayElement.textContent);
     };
 

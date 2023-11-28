@@ -1,5 +1,3 @@
-/* 회원가입 컴포넌트 */
-
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router";
