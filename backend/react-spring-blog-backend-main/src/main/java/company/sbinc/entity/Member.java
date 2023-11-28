@@ -52,9 +52,9 @@ public class Member extends BaseTimeEntity implements UserDetails {
     }
 
     //== update ==//
-    public void update(String password, String username) {
+    public void update(String password, String userid) {
         this.password = password;
-        this.username = username;
+        this.userid = userid;
     }
 
     //========== UserDetails implements ==========//

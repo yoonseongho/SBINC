@@ -17,12 +17,12 @@ public class MemberUpdateDto {
 
     private String password;
     private String passwordCheck;
-    private String username;
+    private String userid;
 
     @Builder
-    public MemberUpdateDto(String password, String passwordCheck, String username) {
+    public MemberUpdateDto(String password, String passwordCheck, String userid) {
         this.password = password;
         this.passwordCheck = passwordCheck;
-        this.username = username;
+        this.userid = userid;
     }
 }

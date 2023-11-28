@@ -76,7 +76,7 @@ public class MemberService {
         Member updateMember =  memberRepository.findByUserid(member.getUserid()).orElseThrow(
                 () -> new ResourceNotFoundException("Member", "Member userid", member.getUserid())
         );
-        updateMember.update(encodePwd, updateDto.getUsername());
+        updateMember.update(encodePwd, updateDto.getUserid());
         return MemberResponseDto.fromEntity(updateMember);
     }
 

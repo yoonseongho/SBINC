@@ -41,7 +41,7 @@ function MemberUpdate(props) {
 		}
 
 		try {
-			const resp = await axios.post("http://localhost:6974/user/update", req, { headers: headers });
+			const resp = await axios.put("http://localhost:6974/user/update", req, { headers: headers });
 			console.log("[MemberUpdate.js] update() success");
 			console.log(resp.data);
 
