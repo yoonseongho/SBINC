@@ -15,13 +15,13 @@ import lombok.Setter;
 public class MemberLoginDto {
 
     private String userid;
-    private String username;
+    private String name;
     private String password;
 
     @Builder
-    public MemberLoginDto(String userid, String username, String password) {
+    public MemberLoginDto(String userid, String name, String password) {
         this.userid = userid;
-        this.username = username;
+        this.name = name;
         this.password = password;
     }
 }
