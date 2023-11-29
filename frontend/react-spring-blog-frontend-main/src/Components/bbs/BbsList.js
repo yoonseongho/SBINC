@@ -93,7 +93,7 @@ function BbsList() {
                             value={choiceVal}
                             onChange={changeChoice}
                         >
-                            <option>검색 옵션 선택</option>
+                            <option>검색 옵션</option>
                             <option value="title">제목</option>
                             <option value="content">내용</option>
                             <option value="writer">작성자</option>
