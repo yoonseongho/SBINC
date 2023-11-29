@@ -13,7 +13,6 @@ import Logout from "../member/Logout"
 import MemberUpdate from "../member/MemberUpdate"
 import CheckPwd from "../member/CheckPwd";
 
-
 function Router() {
 
     return (

@@ -29,8 +29,8 @@ spring:
 jwt:
   header: "Authorization"
   prefix: "Bearer"
-  secret: eyJhbGciOiJIUzUxMiJ9eyJzdWIiOiJ1c2VyIn0I2qOfhAZMGSH1pCecUH5sV2Lg2pSWNQMPzXsMcne6NJ1SlkBoirhGAmKfTYNcRyhu6nQtRzgAd6VXyttoX9A
-  tokenExpirationTime: 18000
+  secret: uvESMHdRLR7Pfv//eYSTNbsCkoJRmRmU8OcbdUKwWO8faLh1FkYCL55cl5J+4zzOfrB+ZsSqOBX5nzrf3EmRxg==
+  tokenExpirationTime: 180000
 
 project:
   folderPath: "files/"
