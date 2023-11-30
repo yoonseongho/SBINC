@@ -24,9 +24,9 @@ const CalendarComponent = () => {
 
     const updateCalendar = () => {
         // 이전에 선택한 날짜에서 빨간색 제거
-        const 이전에선택한날짜 = document.querySelector('.day.selected');
-        if (이전에선택한날짜) {
-            이전에선택한날짜.classList.remove('selected');
+        const beforeDay = document.querySelector('.day.selected');
+        if (beforeDay) {
+            beforeDay.classList.remove('selected');
         }
 
         const calendar = document.getElementById("calendar");
@@ -67,9 +67,9 @@ const CalendarComponent = () => {
 
     const selectDay = (dayElement) => {
         // 이전에 선택한 날짜에서 빨간색 제거
-        const 이전에선택한날짜 = document.querySelector('.day.selected');
-        if (이전에선택한날짜) {
-            이전에선택한날짜.classList.remove('selected');
+        const beforeDay = document.querySelector('.day.selected');
+        if (beforeDay) {
+            beforeDay.classList.remove('selected');
         }
 
         // 새로운 선택한 날짜를 설정하고 빨간색 적용
