@@ -32,8 +32,13 @@ function MemberUpdate(props) {
 		setName(props.name);
 	}, [props.name]);
 
-	/* 회원 정보 수정 */
 	const update = async () => {
+		// 비밀번호 확인 일치 여부 확인
+		if (pwd !== checkPwd) {
+			alert("비밀번호와 비밀번호 확인이 일치하지 않습니다.");
+			return;
+		}
+
 		const req = {
 			password: pwd,
 			passwordCheck: checkPwd,
@@ -54,6 +59,8 @@ function MemberUpdate(props) {
 			const resp = err.response;
 			if (resp && resp.status === 400) {
 				alert(resp.data);
+			} else {
+				alert("회원 정보 수정에 실패했습니다.");
 			}
 		}
 	}
