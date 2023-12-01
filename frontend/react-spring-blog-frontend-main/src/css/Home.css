@@ -1,3 +1,7 @@
 .jumbotron {
     text-align: center;
 }
+
+.container .mt-5 {
+    padding-top: 180px;
+}

@@ -15,7 +15,8 @@ import java.util.List;
 @NoArgsConstructor
 public class Board extends BaseTimeEntity {
 
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "BOARD_ID")
     private Long id;
 
@@ -46,6 +47,7 @@ public class Board extends BaseTimeEntity {
         this.content = content;
         this.viewCount = viewCount;
         this.member = member;
+
     }
 
     //== 조회수 증가 ==//
