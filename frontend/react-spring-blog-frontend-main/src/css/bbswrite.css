@@ -13,3 +13,7 @@
 .delete-button:hover {
     background-color: #d43434;
 }
+
+.table-primary {
+    background-color: #d7d7d7;
+}

@@ -19,3 +19,7 @@
     height: auto;
     width: auto; /* 최대 너비 설정 (원하는 크기로 조절) */
 }
+
+.table-primary {
+    background-color: #d7d7d7;
+}
