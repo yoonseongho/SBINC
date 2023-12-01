@@ -26,7 +26,7 @@ public class FileController {
     private final FileService fileService;
 
     @PostMapping("/upload")
-    public ResponseEntity<List<ResFileUploadDto>> upload (
+    public ResponseEntity<List<ResFileUploadDto>> upload(
             @PathVariable Long boardId,
             @RequestParam("file") List<MultipartFile> files) throws IOException {
         List<ResFileUploadDto> saveFile = fileService.upload(boardId, files);
@@ -34,20 +34,25 @@ public class FileController {
     }
 
     @GetMapping("/download")
-    public ResponseEntity<Resource> download(
-            @RequestParam("fileId") Long fileId) throws IOException {
+    public ResponseEntity<Resource> download(@RequestParam("fileId") Long fileId) throws IOException {
         ResFileDownloadDto downloadDto = fileService.download(fileId);
 
         String encodedFilename = UriUtils.encode(downloadDto.getFilename(), StandardCharsets.UTF_8);
 
-        return ResponseEntity.status(HttpStatus.OK)
-                .contentType(MediaType.parseMediaType("application/pdf")) // PDF의 Content-Type 설정
-                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; fileName=\"" + encodedFilename + "\"")
-                .body(new ByteArrayResource(downloadDto.getContent()));
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.parseMediaType(downloadDto.getFileType()));
+        headers.setContentDispositionFormData("attachment", encodedFilename);
+
+        ByteArrayResource resource = new ByteArrayResource(downloadDto.getContent());
+
+        return ResponseEntity.ok()
+                .headers(headers)
+                .contentLength(resource.contentLength())
+                .body(resource);
     }
 
     @DeleteMapping("/delete")
-    public ResponseEntity<Long> delete (
+    public ResponseEntity<Long> delete(
             @RequestParam("fileId") Long fileId) {
         fileService.delete(fileId);
         return ResponseEntity.status(HttpStatus.OK).build();

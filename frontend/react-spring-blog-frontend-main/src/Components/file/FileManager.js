@@ -17,7 +17,7 @@ const FileManager = (props) => {
       console.log("[FielManager.js] fileDelete() success");
       console.log(response.data);
 
-      alert("파일 삭제 성공 :D");
+      alert("파일 삭제 성공");
       navigate(0);
 
     } catch (error) {

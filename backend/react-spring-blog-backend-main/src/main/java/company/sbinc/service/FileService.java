@@ -124,6 +124,7 @@ public class FileService {
             case "application/vnd.openxmlformats-officedocument.presentationml.presentation":
                 return MediaType.APPLICATION_OCTET_STREAM_VALUE;
             case "application/vnd.openxmlformats-officedocument.wordprocessingml.document":
+            case "application/msword":
                 return MediaType.APPLICATION_OCTET_STREAM_VALUE;
             case "application/vnd.hancom.hwp":
                 return MediaType.APPLICATION_OCTET_STREAM_VALUE;
