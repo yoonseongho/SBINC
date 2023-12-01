@@ -23,8 +23,8 @@ spring:
   #default 1MB
   servlet:
     multipart:
-      max-file-size: 10MB
-      max-request-size: 10MB
+      max-file-size: 10000MB
+      max-request-size: 10000MB
 
 jwt:
   header: "Authorization"

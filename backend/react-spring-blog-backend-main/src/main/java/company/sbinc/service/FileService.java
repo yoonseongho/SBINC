@@ -106,15 +106,25 @@ public class FileService {
         fileRepository.delete(file);
     }
 
-    private String determineContentType(String contentType) {
+    public String determineContentType(String contentType) {
         // ContentType에 따라 MediaType 결정
-        switch (contentType) {
+        switch (contentType.toLowerCase()) {
             case "image/png":
                 return MediaType.IMAGE_PNG_VALUE;
             case "image/jpeg":
                 return MediaType.IMAGE_JPEG_VALUE;
             case "text/plain":
                 return MediaType.TEXT_PLAIN_VALUE;
+            case "application/vnd.ms-excel":
+            case "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet":
+                return MediaType.APPLICATION_OCTET_STREAM_VALUE;
+            case "application/vnd.ms-powerpoint":
+            case "application/vnd.openxmlformats-officedocument.presentationml.presentation":
+                return MediaType.APPLICATION_OCTET_STREAM_VALUE;
+            case "application/vnd.openxmlformats-officedocument.wordprocessingml.document":
+                return MediaType.APPLICATION_OCTET_STREAM_VALUE;
+            case "application/vnd.hancom.hwp":
+                return MediaType.APPLICATION_OCTET_STREAM_VALUE;
             default:
                 return MediaType.APPLICATION_OCTET_STREAM_VALUE;
         }

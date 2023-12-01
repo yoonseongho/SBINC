@@ -12,8 +12,10 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.util.UriUtils;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 @RestController
@@ -32,13 +34,15 @@ public class FileController {
     }
 
     @GetMapping("/download")
-    public ResponseEntity<Resource> download (
+    public ResponseEntity<Resource> download(
             @RequestParam("fileId") Long fileId) throws IOException {
         ResFileDownloadDto downloadDto = fileService.download(fileId);
 
+        String encodedFilename = UriUtils.encode(downloadDto.getFilename(), StandardCharsets.UTF_8);
+
         return ResponseEntity.status(HttpStatus.OK)
-                .contentType(MediaType.parseMediaType(downloadDto.getFileType()))
-                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; fileName=\"" + downloadDto.getFilename() + "\"")
+                .contentType(MediaType.parseMediaType("application/pdf")) // PDF의 Content-Type 설정
+                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; fileName=\"" + encodedFilename + "\"")
                 .body(new ByteArrayResource(downloadDto.getContent()));
     }
 
