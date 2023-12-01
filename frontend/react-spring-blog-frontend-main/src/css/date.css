@@ -1,6 +1,11 @@
 .day.prev-month {
   color: #ccc; /* 이전 달의 날짜를 회색으로 표시 */
 }
+
+.day.next-month {
+  color: #ccc; /* 이전 달의 날짜를 회색으로 표시 */
+}
+
 .weekdays {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
@@ -11,7 +16,6 @@
 /* CSS 파일에 추가 */
 .day.selected {
   color: red;
-  /* 또는 원하는 스타일을 여기에 추가하세요 */
 }
 
 .before,

@@ -14,12 +14,26 @@ const CalendarComponent = () => {
 
     const prevMonth = () => {
         setCurrentMonth((prevMonth) => (prevMonth - 1 + 12) % 12);
-        if (currentMonth === 11) setCurrentYear((prevYear) => prevYear - 1);
+        // 연도를 변경하는 부분 수정
+        setCurrentYear((prevYear) => {
+            if (currentMonth === 0) {
+                return prevYear - 1;
+            } else {
+                return prevYear;
+            }
+        });
     };
 
     const nextMonth = () => {
         setCurrentMonth((prevMonth) => (prevMonth + 1) % 12);
-        if (currentMonth === 0) setCurrentYear((prevYear) => prevYear + 1);
+        // 연도를 변경하는 부분 수정
+        setCurrentYear((prevYear) => {
+            if (currentMonth === 11) {
+                return prevYear + 1;
+            } else {
+                return prevYear;
+            }
+        });
     };
 
     const updateCalendar = () => {
@@ -55,13 +69,16 @@ const CalendarComponent = () => {
             calendar.appendChild(day);
         }
 
-        monthDisplay.textContent = `${currentMonth + 1}월`;
-        yearDisplay.textContent = currentYear;
+        // 다음 달의 일자 추가
+        // 다음 달의 일자 추가
+        const nextMonthFirstDay = new Date(currentYear, currentMonth + 1, 1).getDay();
+        const daysInNextMonth = new Date(currentYear, currentMonth + 2, 0).getDate();
 
-        if (selectedDay) {
-            setCalendarPosition('left');
-        } else {
-            setCalendarPosition('center');
+        for (let i = 1; i <= Math.min(6 - nextMonthFirstDay, daysInNextMonth); i++) {
+            const day = document.createElement("div");
+            day.className = "day next-month";
+            day.textContent = i;
+            calendar.appendChild(day);
         }
     };
 
