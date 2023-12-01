@@ -55,7 +55,7 @@ function Comment(props) {
                 console.log("[BbsComment.js] deleteComment() success");
                 console.log(resp.data);
 
-                alert("답글을 성공적으로 삭제했습니다");
+                alert("댓글을 성공적으로 삭제했습니다");
                 //삭제된 댓글 목록 다시 불러오기
                 props.getCommentList(page);
 
