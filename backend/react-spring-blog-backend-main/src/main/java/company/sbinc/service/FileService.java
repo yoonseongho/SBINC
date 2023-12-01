@@ -115,6 +115,8 @@ public class FileService {
                 return MediaType.IMAGE_JPEG_VALUE;
             case "text/plain":
                 return MediaType.TEXT_PLAIN_VALUE;
+            case "application/pdf":
+                return MediaType.APPLICATION_PDF_VALUE;
             case "application/vnd.ms-excel":
             case "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet":
                 return MediaType.APPLICATION_OCTET_STREAM_VALUE;
