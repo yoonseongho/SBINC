@@ -68,8 +68,7 @@ const CalendarComponent = () => {
             day.addEventListener("click", () => selectDay(day));
             calendar.appendChild(day);
         }
-
-        // 다음 달의 일자 추가
+        
         // 다음 달의 일자 추가
         const nextMonthFirstDay = new Date(currentYear, currentMonth + 1, 1).getDay();
         const daysInNextMonth = new Date(currentYear, currentMonth + 2, 0).getDate();
