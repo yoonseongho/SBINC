@@ -14,7 +14,6 @@ const CalendarComponent = () => {
 
     const prevMonth = () => {
         setCurrentMonth((prevMonth) => (prevMonth - 1 + 12) % 12);
-        // 연도를 변경하는 부분 수정
         setCurrentYear((prevYear) => {
             if (currentMonth === 0) {
                 return prevYear - 1;
@@ -26,7 +25,6 @@ const CalendarComponent = () => {
 
     const nextMonth = () => {
         setCurrentMonth((prevMonth) => (prevMonth + 1) % 12);
-        // 연도를 변경하는 부분 수정
         setCurrentYear((prevYear) => {
             if (currentMonth === 11) {
                 return prevYear + 1;
@@ -37,7 +35,6 @@ const CalendarComponent = () => {
     };
 
     const updateCalendar = () => {
-        // 이전에 선택한 날짜에서 빨간색 제거
         const beforeDay = document.querySelector('.day.selected');
         if (beforeDay) {
             beforeDay.classList.remove('selected');
@@ -68,8 +65,7 @@ const CalendarComponent = () => {
             day.addEventListener("click", () => selectDay(day));
             calendar.appendChild(day);
         }
-        
-        // 다음 달의 일자 추가
+
         const nextMonthFirstDay = new Date(currentYear, currentMonth + 1, 1).getDay();
         const daysInNextMonth = new Date(currentYear, currentMonth + 2, 0).getDate();
 
@@ -82,16 +78,33 @@ const CalendarComponent = () => {
     };
 
     const selectDay = (dayElement) => {
-        // 이전에 선택한 날짜에서 빨간색 제거
         const beforeDay = document.querySelector('.day.selected');
-        if (beforeDay) {
-            beforeDay.classList.remove('selected');
-        }
 
-        // 새로운 선택한 날짜를 설정하고 빨간색 적용
-        setSelectedDay(dayElement);
-        dayElement.classList.add('selected');
-        showNote(dayElement.textContent);
+        if (beforeDay === dayElement) {
+            // 이미 선택된 날짜를 다시 선택하면 메모를 숨기고 색 제거
+            dayElement.classList.remove('selected');
+            setSelectedDay(null);
+            setMemo('');
+            hideNote();
+        } else {
+            // 다른 날짜를 선택하면 색 추가하고 메모 보이기
+            if (beforeDay) {
+                beforeDay.classList.remove('selected');
+            }
+
+            setSelectedDay(dayElement);
+            dayElement.classList.add('selected');
+            showNote(dayElement.textContent);
+        }
+    };
+
+    const hideNote = () => {
+        const note = document.getElementById("note");
+        note.style.display = "none";
+
+        if (!selectedDay) {
+            setCalendarPosition('center');
+        }
     };
 
     const showNote = (day) => {
@@ -102,7 +115,7 @@ const CalendarComponent = () => {
         setMemo(storedMemo || "");
         note.style.display = "block";
 
-        setCalendarPosition('left');
+        setCalendarPosition('left'); // 수정된 부분
     };
 
     const saveNote = () => {
