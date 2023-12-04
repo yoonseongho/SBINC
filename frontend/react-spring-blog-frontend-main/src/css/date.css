@@ -15,7 +15,13 @@
 
 /* CSS 파일에 추가 */
 .day.selected {
-  color: red;
+  color: black;
+  background-color: #b9b8b8;
+}
+
+.day:hover {
+  color: black;
+  background-color: #b9b8b8;
 }
 
 .before,

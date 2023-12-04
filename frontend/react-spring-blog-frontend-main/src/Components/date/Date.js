@@ -80,21 +80,26 @@ const CalendarComponent = () => {
     const selectDay = (dayElement) => {
         const beforeDay = document.querySelector('.day.selected');
 
-        if (beforeDay === dayElement) {
-            // 이미 선택된 날짜를 다시 선택하면 메모를 숨기고 색 제거
-            dayElement.classList.remove('selected');
-            setSelectedDay(null);
-            setMemo('');
-            hideNote();
+        if (beforeDay === dayElement && memo !== null) {
+            if (document.getElementById("note").style.display === "block") {
+                hideNote();
+            } else {
+                showNote(dayElement.textContent);
+            }
         } else {
-            // 다른 날짜를 선택하면 색 추가하고 메모 보이기
             if (beforeDay) {
                 beforeDay.classList.remove('selected');
             }
 
             setSelectedDay(dayElement);
-            dayElement.classList.add('selected');
-            showNote(dayElement.textContent);
+
+            if (memo !== null) {
+                dayElement.classList.add('selected');
+                showNote(dayElement.textContent);
+            } else {
+                setMemo('');
+                hideNote();
+            }
         }
     };
 
