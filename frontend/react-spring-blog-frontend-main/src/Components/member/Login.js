@@ -58,7 +58,7 @@ function Login() {
 			console.log("[Login.js] login() error");
 			console.log(err);
 
-			alert("⚠️ " + err.response.data);
+			alert("아이디 또는 비밀번호가 일치하지않습니다. " + err.response.data);
 		});
 	}
 
